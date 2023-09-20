@@ -31,7 +31,6 @@ const passportVerifyToken = new JwtStrategy(
 const passportVerifyAccount = new LocalStrategy({ usernameField: 'email' },
   async (email, password, done) => {
     try {
-      console.log('««««« chay vo day ne »»»»»');
       const user = await Employee.findOne({
         isDeleted: false,
         email,
