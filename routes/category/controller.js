@@ -1,4 +1,3 @@
-let data = require('../../data/categories.json');
 const { sendErr, generationID, writeFileSync } = require('../../utils');
 const { Category } = require('../../models');
 
@@ -23,13 +22,13 @@ module.exports = {
   getDetailCategory: async (req, res, next) => {
     try {
       const { id } = req.params;
-  
+
       const result = await Category.findById(id);
       // const result = await Category.findOne({
       //   _id : id,
       //   isDeleted: false,
       // });
-  
+
       if (!result) {
         return res.send(
           404,
@@ -47,7 +46,7 @@ module.exports = {
           },
         );
       }
-  
+
       return res.send(
         202,
         {
@@ -64,14 +63,14 @@ module.exports = {
   createCategory: async (req, res, next) => {
     try {
       const { name, description } = req.body;
-  
+
       const newCategory = new Category({
         name,
         description,
       });
 
       const result = await newCategory.save();
-  
+
       return res.send(
         202,
         {

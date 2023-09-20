@@ -16,7 +16,7 @@ const {
 router.route('/login')
   .post(
     validateSchema(loginSchema),
-    // checkAccount
+    // // checkAccount
     passport.authenticate('local', { session: false }),
     login,
   );
