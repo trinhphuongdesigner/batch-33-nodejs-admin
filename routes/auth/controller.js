@@ -1,7 +1,7 @@
 const JWT = require('jsonwebtoken');
 
 const { generateToken, generateRefreshToken } = require('../../utils/jwtHelper');
-const { Customer } = require('../../models');
+const { Employee } = require('../../models');
 const jwtSettings = require('../../constants/jwtSetting');
 
 module.exports = {
@@ -51,12 +51,12 @@ module.exports = {
         } else {
           const { id } = payload;
 
-          const customer = await Customer.findOne({
+          const employee = await Employee.findOne({
             _id: id,
             isDeleted: false,
           }).select('-password').lean();
 
-          if (customer) {
+          if (employee) {
             const {
               _id,
               firstName,
@@ -66,7 +66,7 @@ module.exports = {
               email,
               birthday,
               updatedAt,
-            } = customer;
+            } = employee;
 
             const token = generateToken({
               _id,
@@ -95,7 +95,7 @@ module.exports = {
 
   basicLogin: async (req, res, next) => {
     try {
-      const user = await Customer.findById(req.user._id).select('-password').lean();
+      const user = await Employee.findById(req.user._id).select('-password').lean();
       const token = generateToken(user);
       // const refreshToken = generateRefreshToken(user._id);
 
