@@ -36,6 +36,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+const cors = require('cors');
+
 mongoose.connect(`${CONNECTION_STRING}${DB_NAME}`);
 // mongoose.connect('node-33-database');
 
