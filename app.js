@@ -6,6 +6,7 @@ var logger = require('morgan');
 const { default: mongoose } = require('mongoose');
 require('dotenv').config();
 const passport = require('passport');
+const cors = require('cors');
 
 var authRouter = require('./routes/auth/router');
 var productsRouter = require('./routes/product/router');
@@ -36,7 +37,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-const cors = require('cors');
+app.use(
+  cors({
+    origin: '*',
+  }),
+);
 
 mongoose.connect(`${CONNECTION_STRING}${DB_NAME}`);
 // mongoose.connect('node-33-database');
