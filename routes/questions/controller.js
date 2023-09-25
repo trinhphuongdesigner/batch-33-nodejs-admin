@@ -20,7 +20,7 @@ module.exports = {
       let results = await Product.find(conditionFind);
       let total = await Product.countDocuments();
 
-      return res.send({
+      return res.sendStatus(200).json({
         code: 200,
         total,
         totalResult: results.length,
@@ -41,7 +41,7 @@ module.exports = {
       let results = await Product.find(conditionFind).populate("category").populate("supplier");
       let total = await Product.countDocuments();
 
-      return res.send({
+      return res.sendStatus(200).json({
         code: 200,
         total,
         totalResult: results.length,
@@ -89,7 +89,7 @@ module.exports = {
       let results = await Product.find(conditionFind).populate("category").populate("supplier");
       let total = await Product.countDocuments();
 
-      return res.send({
+      return res.sendStatus(200).json({
         code: 200,
         total,
         totalResult: results.length,
@@ -111,7 +111,7 @@ module.exports = {
       let results = await Product.find(conditionFind);
       let total = await Product.countDocuments();
 
-      return res.send({
+      return res.sendStatus(200).json({
         code: 200,
         total,
         totalResult: results.length,
@@ -132,7 +132,7 @@ module.exports = {
       let results = await Product.find(conditionFind).populate("category").populate("supplier");
       let total = await Product.countDocuments();
 
-      return res.send({
+      return res.sendStatus(200).json({
         code: 200,
         total,
         totalResult: results.length,
@@ -179,7 +179,7 @@ module.exports = {
       let results = await Product.find(conditionFind).populate("category").populate("supplier");
       let total = await Product.countDocuments();
 
-      return res.send({
+      return res.sendStatus(200).json({
         code: 200,
         total,
         totalResult: results.length,
@@ -225,7 +225,7 @@ module.exports = {
 
       let total = await Product.countDocuments();
 
-      return res.send({
+      return res.sendStatus(200).json({
         code: 200,
         total,
         totalResult: results.length,
@@ -256,7 +256,7 @@ module.exports = {
 
       let total = await Product.countDocuments();
 
-      return res.send({
+      return res.sendStatus(200).json({
         code: 200,
         total,
         totalResult: results.length,
@@ -284,7 +284,7 @@ module.exports = {
 
       let total = await Product.countDocuments();
 
-      return res.send({
+      return res.sendStatus(200).json({
         code: 200,
         total,
         totalResult: results.length,
@@ -341,7 +341,7 @@ module.exports = {
 
       let total = await Product.countDocuments();
 
-      return res.send({
+      return res.sendStatus(200).json({
         code: 200,
         total,
         totalResult: results.length,
@@ -409,7 +409,7 @@ module.exports = {
 
       let total = await Product.countDocuments();
 
-      return res.send({
+      return res.sendStatus(200).json({
         code: 200,
         total,
         totalResult: results.length,
@@ -481,7 +481,7 @@ module.exports = {
 
       let total = await Product.countDocuments();
 
-      return res.send({
+      return res.sendStatus(200).json({
         code: 200,
         total,
         totalResult: results.length,
@@ -510,7 +510,7 @@ module.exports = {
 
       let total = await Customer.countDocuments();
 
-      return res.send({
+      return res.sendStatus(200).json({
         code: 200,
         total,
         totalResult: results.length,
@@ -536,7 +536,7 @@ module.exports = {
 
       let total = await Customer.countDocuments();
 
-      return res.send({
+      return res.sendStatus(200).json({
         code: 200,
         total,
         totalResult: results.length,
@@ -562,7 +562,7 @@ module.exports = {
 
       let total = await Customer.countDocuments();
 
-      return res.send({
+      return res.sendStatus(200).json({
         code: 200,
         total,
         totalResult: results.length,
@@ -592,7 +592,7 @@ module.exports = {
 
       let total = await Customer.countDocuments();
 
-      return res.send({
+      return res.sendStatus(200).json({
         code: 200,
         total,
         totalResult: results.length,
@@ -643,7 +643,7 @@ module.exports = {
 
       let total = await Customer.countDocuments();
 
-      return res.send({
+      return res.sendStatus(200).json({
         code: 200,
         total,
         totalResult: results.length,
@@ -677,7 +677,7 @@ module.exports = {
 
       let total = await Order.countDocuments();
 
-      return res.send({
+      return res.sendStatus(200).json({
         code: 200,
         total,
         totalResult: results.length,
@@ -736,7 +736,7 @@ module.exports = {
 
       let total = await Order.countDocuments();
 
-      return res.send({
+      return res.sendStatus(200).json({
         code: 200,
         total,
         totalResult: results.length,
@@ -768,7 +768,7 @@ module.exports = {
 
       let total = await Order.countDocuments();
 
-      return res.send({
+      return res.sendStatus(200).json({
         code: 200,
         total,
         totalResult: results.length,
@@ -816,7 +816,7 @@ module.exports = {
 
       let total = await Order.countDocuments();
 
-      return res.send({
+      return res.sendStatus(200).json({
         code: 200,
         total,
         totalResult: results.length,
@@ -855,7 +855,7 @@ module.exports = {
 
       let total = await Order.countDocuments();
 
-      return res.send({
+      return res.sendStatus(200).json({
         code: 200,
         total,
         totalResult: results.length,

@@ -4,10 +4,10 @@ const { sendErr, generationID, writeFileSync } = require('../../utils');
 module.exports = {
   getAllProduct: (req, res, next) => {
     try {
-      return res.send(data);
+      return res.sendStatus(200).json(data);
     } catch (error) {
       console.log('««««« error »»»»»', error);
-      return res.send(400, { message: "Không thành công" });
+      return res.status(400).json({ message: "Không thành công" });
     }
   },
 
@@ -18,16 +18,14 @@ module.exports = {
       const detail = data.find((item) => item.id.toString() === id);
   
       if (!detail) {
-        return res.send(
-          404,
+        return res.status(404).json(
           {
             message: "Không tìm thấy",
           },
         );
       }
   
-      return res.send(
-        202,
+      return res.sendStatus(202).json(
         {
           message: "Lấy thông tin thành công",
           payload: detail,
@@ -49,8 +47,7 @@ module.exports = {
   
       writeFileSync("data/products.json", data);
   
-      return res.send(
-        202,
+      return res.sendStatus(202).json(
         {
           message: "Tạo sản phẩm thành công",
           payload: newP,
@@ -83,8 +80,7 @@ module.exports = {
   
       writeFileSync("data/products.json", data);
   
-      return res.send(
-        202,
+      return res.sendStatus(202).json(
         {
           message: "Cập nhật sản phẩm thành công",
           payload: updateData,
@@ -121,7 +117,7 @@ module.exports = {
       writeFileSync("data/products.json", data);
   
       if (updateData) {
-        return res.send(
+        return res.sendStatus(200).json(
           202,
           {
             message: "Cập nhật sản phẩm thành công",
@@ -145,8 +141,7 @@ module.exports = {
   
       writeFileSync("data/products.json", data);
   
-      return res.send(
-        202,
+      return res.sendStatus(202).json(
         {
           message: "Xóa sản phẩm thành công",
         },

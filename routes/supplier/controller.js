@@ -6,12 +6,12 @@ async function getAll(req, res, next) {
   try {
     const payload = await Supplier.find({ isDeleted: false });
 
-    res.send(200, {
+    res.status(200).json({
       payload,
       message: "Lấy dánh sách thành công"
     });
   } catch (error) {
-    res.send(400, {
+    res.status(400).json({
       error,
       message: "Lấy dánh sách không thành công"
     });
@@ -28,13 +28,13 @@ async function create(req, res, next) {
 
     const payload = await newSupplier.save();
 
-    res.send(200, {
+    res.status(200).json({
       payload,
       message: "Tạo thành công"
     });
   } catch (error) {
     console.log('««««« error »»»»»', error);
-    res.send(400, {
+    res.status(400).json({
       error,
       message: "Tạo không thành công"
     });
@@ -52,12 +52,12 @@ async function search(req, res, next) {
 
     const payload = await Supplier.find(conditionFind);
 
-    res.send(200, {
+    res.status(200).json({
       payload,
       message: "Tìm kiếm thành công"
     });
   } catch (error) {
-    res.send(400, {
+    res.status(400).json({
       error,
       message: "Tìm kiếm không thành công"
     });
@@ -73,17 +73,17 @@ async function getDetail(req, res, next) {
     });
 
     if (!payload) {
-      return res.send(400, {
+      return res.status(400).json({
         message: "Không tìm thấy"
       });
     }
 
-    return res.send(200, {
+    return res.status(200).json({
       payload,
       message: "Xem chi tiết thành công"
     });
   } catch (error) {
-    res.send(400, {
+    res.status(400).json({
       error,
       message: "Xem chi tiết không thành công"
     });
@@ -101,15 +101,15 @@ async function update(req, res, next) {
     );
 
     if (payload) {
-      return res.send(200, {
+      return res.status(200).json({
         payload,
         message: "Cập nhập thành công"
       });
     }
-    return res.send(404, { message: "Không tìm thấy" });
+    return res.status(404).json({ message: "Không tìm thấy" });
   } catch (error) {
     console.log('««««« error »»»»»', error);
-    res.send(400, {
+    res.status(400).json({
       error,
       message: "Cập nhập không thành công"
     });
@@ -127,17 +127,17 @@ async function deleteFunc(req, res, next) {
     );
 
     if (payload) {
-      return res.send(200, {
+      return res.status(200).json({
         payload,
         message: "Xóa thành công"
       });
     }
 
-    return res.send(200, {
+    return res.status(200).json({
       message: "Không tìm thấy danh mục"
     });
   } catch (error) {
-    res.send(400, {
+    res.status(400).json({
       error,
       message: "Xóa không thành công"
     });

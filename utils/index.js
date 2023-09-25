@@ -59,7 +59,7 @@ module.exports = {
       return next();
     } catch (err) {
       console.log('««««« err »»»»»', err);
-      return res.send(400, { type: err.name, errors: err.errors, provider: "YUP", })
+      return res.status(400).json({ type: err.name, errors: err.errors, provider: "YUP", })
       // return res.status(400).json({ type: err.name, errors: err.errors, provider: "YUP" });
     }
   },
@@ -72,12 +72,10 @@ module.exports = {
     }),
   }),
 
-  sendErr: (res, errors) => res.send(
-    400,
-    {
-      message: "Thất bại",
-      errors,
-    },
+  sendErr: (res, errors) => res.sendStatus(400).json({
+    message: "Thất bại",
+    errors,
+  },
   ),
 
   fuzzySearch: (text) => {

@@ -6,16 +6,14 @@ module.exports = {
     try {
       const result = await Category.find({ isDeleted: false });
 
-      return res.send(
-        200,
-        {
+      return res.status(404).json({
           message: "Lấy thông tin thành công",
           payload: result,
         },
       );
     } catch (error) {
       console.log('««««« error »»»»»', error);
-      return res.send(400, { message: "Không thành công" });
+      return res.status(400).json({ message: "Không thành công" });
     }
   },
 
@@ -30,8 +28,7 @@ module.exports = {
       // });
 
       if (!result) {
-        return res.send(
-          404,
+        return res.status(404).json(
           {
             message: "Không tìm thấy",
           },
@@ -39,16 +36,14 @@ module.exports = {
       }
 
       if (result.isDeleted) {
-        return res.send(
-          400,
+        return res.status(400).json(
           {
             message: "Danh mục đã bị xóa",
           },
         );
       }
 
-      return res.send(
-        202,
+      return res.sendStatus(202).json(
         {
           message: "Lấy thông tin thành công",
           payload: result,
@@ -71,8 +66,7 @@ module.exports = {
 
       const result = await newCategory.save();
 
-      return res.send(
-        202,
+      return res.sendStatus(202).json(
         {
           message: "Tạo sản phẩm thành công",
           payload: result,
@@ -101,8 +95,7 @@ module.exports = {
       const result1 = await Category.findById(id);
 
       if (!result1) {
-        return res.send(
-          404,
+        return res.status(404).json(
           {
             message: "Không tìm thấy",
           },
@@ -110,8 +103,7 @@ module.exports = {
       }
 
       if (result1.isDeleted) {
-        return res.send(
-          404,
+        return res.status(404).json(
           {
             message: "Đã bị xóa",
           },
@@ -120,8 +112,7 @@ module.exports = {
 
       const result2 = await Category.findByIdAndUpdate(id, { name, description }, { new: true })
 
-      return res.send(
-        202,
+      return res.sendStatus(202).json(
         {
           message: "Cập nhật danh mục thành công",
           payload: result2,
@@ -152,8 +143,7 @@ module.exports = {
       const result1 = await Category.findById(id);
 
       if (!result1) {
-        return res.send(
-          404,
+        return res.status(404).json(
           {
             message: "Không tìm thấy",
           },
@@ -161,8 +151,7 @@ module.exports = {
       }
 
       if (result1.isDeleted) {
-        return res.send(
-          404,
+        return res.status(404).json(
           {
             message: "Đã bị xóa",
           },
@@ -172,8 +161,7 @@ module.exports = {
       // const result2 = await Category.findByIdAndUpdate(id, { name, description: undefined }, { new: true })
       const result2 = await Category.findByIdAndUpdate(id, { $set: { name, description: null } }, { new: true })
 
-      return res.send(
-        202,
+      return res.sendStatus(202).json(
         {
           message: "Cập nhật danh mục thành công",
           payload: result2,
@@ -193,8 +181,7 @@ module.exports = {
       const result1 = await Category.findById(id);
 
       if (!result1) {
-        return res.send(
-          404,
+        return res.status(404).json(
           {
             message: "Không tìm thấy",
           },
@@ -202,8 +189,7 @@ module.exports = {
       }
 
       if (result1.isDeleted) {
-        return res.send(
-          404,
+        return res.status(404).json(
           {
             message: "Danh mục đã bị xóa từ trước",
           },
@@ -212,8 +198,7 @@ module.exports = {
 
       await Category.updateOne({ _id: id }, { isDeleted: true })
 
-      return res.send(
-        202,
+      return res.sendStatus(202).json(
         {
           message: "Xóa sản phẩm thành công",
         },
