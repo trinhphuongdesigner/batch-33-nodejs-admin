@@ -51,13 +51,20 @@ passport.use(passportVerifyAccount);
 passport.use(passportConfigBasic);
 
 app.use('/auth', authRouter);
-app.use('/products', passport.authenticate('jwt', { session: false }), productsRouter);
-app.use('/categories', passport.authenticate('jwt', { session: false }), categoriesRouter);
-app.use('/suppliers', passport.authenticate('jwt', { session: false }), suppliersRouter);
-app.use('/customers', passport.authenticate('jwt', { session: false }), customersRouter);
-app.use('/employees', passport.authenticate('jwt', { session: false }), employeesRouter);
-app.use('/orders', passport.authenticate('jwt', { session: false }), ordersRouter);
-app.use('/questions', passport.authenticate('jwt', { session: false }), questionsRouter);
+app.use('/products', productsRouter);
+app.use('/categories', categoriesRouter);
+app.use('/suppliers', suppliersRouter);
+app.use('/customers', customersRouter);
+app.use('/employees', employeesRouter);
+app.use('/orders', ordersRouter);
+app.use('/questions', questionsRouter);
+// app.use('/products', passport.authenticate('jwt', { session: false }), productsRouter);
+// app.use('/categories', passport.authenticate('jwt', { session: false }), categoriesRouter);
+// app.use('/suppliers', passport.authenticate('jwt', { session: false }), suppliersRouter);
+// app.use('/customers', passport.authenticate('jwt', { session: false }), customersRouter);
+// app.use('/employees', passport.authenticate('jwt', { session: false }), employeesRouter);
+// app.use('/orders', passport.authenticate('jwt', { session: false }), ordersRouter);
+// app.use('/questions', passport.authenticate('jwt', { session: false }), questionsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
