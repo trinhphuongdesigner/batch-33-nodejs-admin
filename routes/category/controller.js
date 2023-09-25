@@ -6,7 +6,7 @@ module.exports = {
     try {
       const result = await Category.find({ isDeleted: false });
 
-      return res.status(404).json({
+      return res.status(200).json({
           message: "Lấy thông tin thành công",
           payload: result,
         },
