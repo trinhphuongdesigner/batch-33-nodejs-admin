@@ -3,7 +3,7 @@ const fs = require('fs');
 
 const {
   toSafeFileName,
-} = require('../helper/MongoDbHelper');
+} = require('../utils/MongoDbHelper');
 
 const UPLOAD_DIRECTORY = './public/uploads';
 
