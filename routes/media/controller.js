@@ -13,7 +13,8 @@ const {
 
 module.exports = {
   uploadSingle: (req, res, next) =>
-    upload.single('image')(req, res, async (err) => {
+  // file => tên biến nhận từ FE
+    upload.single('file')(req, res, async (err) => {
       try {
         if (err instanceof multer.MulterError) {
           res.status(500).json({ type: 'MulterError', err: err });
@@ -29,6 +30,7 @@ module.exports = {
           //   },
           //   'Media',
           // );
+          console.log('««««« req.file »»»»»', req.file);
           const media = new Media({
             location: req.file.path,
             name: req.file.filename,
@@ -63,6 +65,8 @@ module.exports = {
             });
             return prev;
           }, []);
+
+          // sử dụng Media.insertMany()
 
           const response = await insertDocuments(dataInsert, 'Media');
 

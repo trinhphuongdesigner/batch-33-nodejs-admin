@@ -59,7 +59,7 @@ app.use('/customers', customersRouter);
 app.use('/employees', employeesRouter);
 app.use('/orders', ordersRouter);
 app.use('/questions', questionsRouter);
-app.use('/media', mediaRouter);
+app.use('/media', passport.authenticate('jwt', { session: false }), mediaRouter);
 // app.use('/products', passport.authenticate('jwt', { session: false }), productsRouter);
 // app.use('/categories', passport.authenticate('jwt', { session: false }), categoriesRouter);
 // app.use('/suppliers', passport.authenticate('jwt', { session: false }), suppliersRouter);

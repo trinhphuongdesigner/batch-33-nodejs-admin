@@ -5,7 +5,7 @@ const { uploadSingle, uploadMultiple, getDetail, update } = require('./controlle
 
 router.post('/upload-single', uploadSingle);
 
-router.post('/upload-multiple',uploadMultiple);
+router.post('/upload-multiple', uploadMultiple);
 
 router.get('/:id', getDetail);
 
