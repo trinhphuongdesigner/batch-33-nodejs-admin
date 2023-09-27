@@ -99,6 +99,8 @@ module.exports = {
         } else if (err) {
           res.status(500).json({ type: 'UnknownError', err: err });
         } else {
+
+          // Media.findByIdAndUpdate()
           const response = await updateDocument(
             { _id: id },
             {
