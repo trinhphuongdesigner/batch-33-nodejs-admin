@@ -52,7 +52,6 @@ passport.use(passportVerifyToken);
 passport.use(passportVerifyAccount);
 passport.use(passportConfigBasic);
 
-
 app.use('/auth', authRouter);
 app.use('/products', productsRouter);
 app.use('/categories', categoriesRouter);

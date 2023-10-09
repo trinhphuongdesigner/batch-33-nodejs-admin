@@ -1,3 +1,5 @@
+const axios = require('axios');
+
 const { Product, Category, Supplier } = require('../../models');
 const { fuzzySearch, toObjectId } = require('../../utils');
 
@@ -250,6 +252,10 @@ module.exports = {
       );
 
       if (updatedProduct) {
+        // revalidate
+        const responsive = await axios.get(`http://localhost:3000/api/revalidate-product-details?secret=xxx&id=${id}`)
+        console.log('««««« responsive »»»»»', responsive);
+
         return res.status(200).json({
           message: "Update successful",
           payload: updatedProduct,
