@@ -253,7 +253,7 @@ module.exports = {
 
       if (updatedProduct) {
         // revalidate
-        const responsive = await axios.get(`http://localhost:3000/api/revalidate-product-details?secret=xxx&id=${id}`)
+        const responsive = await axios.get(`http://localhost:3000/api/revalidate-product-details?secret=${process.env.SECRET_REVALIDATION_KEY}&id=${id}`)
         console.log('««««« responsive »»»»»', responsive);
 
         return res.status(200).json({
